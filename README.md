@@ -1,2 +1,2 @@
 # MUX-n-1
-The one-bit N*1 multiplexer Verilog implementation
+Single-bit N-to-1 multiplexer Verilog implementation
