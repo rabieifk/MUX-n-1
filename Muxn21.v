@@ -1,6 +1,6 @@
 
 
-module MUX_n-to1 #(parameter N = 8, m = $clog2(N))(inp, select, out);
+module MUX_n-to-1 #(parameter N = 8, m = $clog2(N))(inp, select, out);
   input [N-1:0]inp;
   input [m-1:0]select;
   output out; 
