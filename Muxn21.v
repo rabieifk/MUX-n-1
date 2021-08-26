@@ -1,6 +1,6 @@
 
 
-module mux_n #(parameter N = 9, m = 4)(inp, select, out); // $floor($clog2(N))
+module MUX_n #(parameter N = 9, m = 4)(inp, select, out); // $floor($clog2(N))
   input [N-1:0]inp;
   input [m-1:0]select;
   output out; 
@@ -16,14 +16,14 @@ module mux_n #(parameter N = 9, m = 4)(inp, select, out); // $floor($clog2(N))
     end
     else if (N>2) begin 
       if ((N & (N-1))==0) begin
-        mux_n #(.N(N/2),.m(m-1)) M1 (.inp(inp[N/2-1:0]), .select(select[m-2:0]), .out(temp[0]) );
-        mux_n #(.N(N/2),.m(m-1))  M2 (.inp(inp[N-1:N/2]), .select(select[m-2:0]), .out(temp[1]) );
-        mux_n #(.N(2),.m(1)) M3 (.inp(temp), .select(select[m-1]), .out(out));
+        MUX_n #(.N(N/2),.m(m-1)) M1 (.inp(inp[N/2-1:0]), .select(select[m-2:0]), .out(temp[0]) );
+        MUX_n #(.N(N/2),.m(m-1))  M2 (.inp(inp[N-1:N/2]), .select(select[m-2:0]), .out(temp[1]) );
+        MUX_n #(.N(2),.m(1)) M3 (.inp(temp), .select(select[m-1]), .out(out));
       end 
       else begin
-        mux_n #(.N(2**(m-1)),.m(m-1)) M4 (.inp(inp[(2**(m-1)-1):0]), .select(select[m-2:0]), .out(temp1[0]) );
-        mux_n #(.N(N - (2**(m-1))),.m(m-1)) M5 (.inp(inp[N-1:(2**(m-1))]), .select(select[m-2:0]), .out(temp1[1]) );
-        mux_n #(.N(2),.m(1)) M6 (.inp(temp1), .select(select[m-1]), .out(out));
+        MUX_n #(.N(2**(m-1)),.m(m-1)) M4 (.inp(inp[(2**(m-1)-1):0]), .select(select[m-2:0]), .out(temp1[0]) );
+        MUX_n #(.N(N - (2**(m-1))),.m(m-1)) M5 (.inp(inp[N-1:(2**(m-1))]), .select(select[m-2:0]), .out(temp1[1]) );
+        MUX_n #(.N(2),.m(1)) M6 (.inp(temp1), .select(select[m-1]), .out(out));
       end
     end
   endgenerate
