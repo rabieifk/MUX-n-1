@@ -3,7 +3,7 @@ module tb_mux();
   reg [3:0] sel;
   wire out;
   
-  MUX_n #(.N(16), .m($clog2(16))) U1 (.inp(in), .select(sel), .out(out));
+  MUX_n #(.N(14), .m(4) U1 (.inp(in), .select(sel), .out(out));
   
   initial begin
     in = 14'b00000000000000;
