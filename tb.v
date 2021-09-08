@@ -3,7 +3,7 @@ module tb_MUX_w4();
   reg [1:0] select;
   wire [3:0] out;
   
-  w_bit_N_MUX #(.N(4), .m(2), .W(4)) U1 (.a3(a), .a2(b), .a1(c), .a0(d), .sel(select), .out(out));
+  W_bit_N_MUX #(.N(4), .m(2), .W(4)) U1 (.a3(a), .a2(b), .a1(c), .a0(d), .sel(select), .out(out));
   
   initial begin
     a = 4'b0000;
