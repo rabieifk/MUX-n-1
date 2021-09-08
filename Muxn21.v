@@ -26,7 +26,7 @@ module mux_module #(parameter N = 9, m = 4)(inp, select, out); // $floor($clog2(
     end
   endgenerate
 endmodule
-module w_bit_N_MUX #(parameter N = 4, m = 2, W = 4) ( a3,  a2,  a1,  a0,  sel, out);
+module W_bit_N_MUX #(parameter N = 4, m = 2, W = 4) ( a3,  a2,  a1,  a0,  sel, out);
 input [N-1:0] a3, a2, a1, a0 ; 
 input [m-1:0] sel; 
 output [3:0] out; 
