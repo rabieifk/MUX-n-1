@@ -33,7 +33,7 @@ int main()
     ini_file.close();
     out_file.close();
     vFile = fopen("MUX.v", "a");
-    fprintf(vFile, "module w_bit_N_MUX #(parameter N = %d, m = %d, W = %d)", N, m, W);
+    fprintf(vFile, "module W_bit_N_MUX #(parameter N = %d, m = %d, W = %d)", N, m, W);
     fprintf(vFile, " (");
     while(i >= 0 )
     {
