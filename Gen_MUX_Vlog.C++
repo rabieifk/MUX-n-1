@@ -22,7 +22,7 @@ int main(int argc, const char ** argv)
 {
 	ArgReader args(argv, argc);
 
-    	if(argc<=1)
+    	if(argc <= 1)
         	printf("\nNo Extra Command Line Argument Passed.");
 	if (args.IsSet("-h"))
 		PrintHelp();
@@ -56,7 +56,7 @@ int main(int argc, const char ** argv)
     	}
 	fprintf(verilog_file, " sel, out);\n");
 	fprintf(verilog_file, "input [N-1:0] ");
-	for(i=w-1;i>0;i--){
+	for(i = w-1; i > 0; i--){
 		fprintf(verilog_file, "%s, " ,input_port_name[i].c_str());
 	}
 	fprintf(verilog_file, "%s ; \n" ,input_port_name[0].c_str());
@@ -66,7 +66,7 @@ int main(int argc, const char ** argv)
 	fprintf(verilog_file, "reg [N-1:0]matrix [0:%d] ;\n",i);
 	fprintf(verilog_file, "genvar i; \n");
 	fprintf(verilog_file, "always @(*) begin \n");
-	for(i=w-1;i>=0;i--){
+	for(i=w-1; i >= 0; i--){
 		fprintf(verilog_file, "	matrix[%d] = %s ;\n" ,i , input_port_name[i].c_str());
 	}
 	fprintf(verilog_file, "end \n");
